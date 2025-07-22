@@ -532,7 +532,7 @@ focusManager.setEventListener((handleFocus) => {
 
 <br/>
 
-### (3) 포커스 상태 수동 제어 - `focusManager`\*\*
+### (3) 포커스 상태 수동 제어 - `focusManager`
 
 ```jsx
 import { focusManager } from "@tanstack/react-query";

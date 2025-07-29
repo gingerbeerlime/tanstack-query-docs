@@ -16,6 +16,12 @@
 - [Dependent Queries](./docs/guides-concepts/dependent-queries.md)
 - [Background Fetching Indicators](./docs/guides-concepts/background-fetching-indicators.md)
 - [Window Focus Refetching](./docs/guides-concepts/window-focus-refetching.md)
+- [Disabling/Pausing Queries](./docs/guides-concepts/disabling-pausing-queries.md)
+- [Query Retries](./docs/guides-concepts/query-retries.md)
+- [Paginated Queries](./docs/guides-concepts/paginated-queries.md)
+- [Infinite Queries](./docs/guides-concepts/infinite-queries.md)
+- [Initial Query Data](./docs/guides-concepts/initial-query-data.md)
+- [Placeholder Query Data](./docs/guides-concepts/placeholder-query-data.md)
 
 ## 참고 링크
 

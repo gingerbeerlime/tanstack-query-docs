@@ -6,22 +6,22 @@
 
 ### Guide & Concepts
 
-- [Important Defaults](./docs/guides-concepts/important-defaults.md)
-- [Queries](./docs/guides-concepts/queries.md)
-- [Query Keys](./docs/guides-concepts/query-keys.md)
-- [Query Functions](./docs/guides-concepts/query-functions.md)
-- [Query Options](./docs/guides-concepts/query-options.md)
-- [네트워크 모드](./docs/guides-concepts/network-mode.md)
-- [Parallel Queries](./docs/guides-concepts/parallel-queries.md)
-- [Dependent Queries](./docs/guides-concepts/dependent-queries.md)
-- [Background Fetching Indicators](./docs/guides-concepts/background-fetching-indicators.md)
-- [Window Focus Refetching](./docs/guides-concepts/window-focus-refetching.md)
-- [Disabling/Pausing Queries](./docs/guides-concepts/disabling-pausing-queries.md)
-- [Query Retries](./docs/guides-concepts/query-retries.md)
-- [Paginated Queries](./docs/guides-concepts/paginated-queries.md)
-- [Infinite Queries](./docs/guides-concepts/infinite-queries.md)
-- [Initial Query Data](./docs/guides-concepts/initial-query-data.md)
-- [Placeholder Query Data](./docs/guides-concepts/placeholder-query-data.md)
+- [Important Defaults](./docs/guides-concepts/01-important-defaults.md)
+- [Queries](./docs/guides-concepts/02-queries.md)
+- [Query Keys](./docs/guides-concepts/03-query-keys.md)
+- [Query Functions](./docs/guides-concepts/04-query-functions.md)
+- [Query Options](./docs/guides-concepts/05-query-options.md)
+- [Network Mode](./docs/guides-concepts/06-network-mode.md)
+- [Parallel Queries](./docs/guides-concepts/07-parallel-queries.md)
+- [Dependent Queries](./docs/guides-concepts/08-dependent-queries.md)
+- [Background Fetching Indicators](./docs/guides-concepts/09-background-fetching-indicators.md)
+- [Window Focus Refetching](./docs/guides-concepts/10-window-focus-refetching.md)
+- [Disabling/Pausing Queries](./docs/guides-concepts/11-disabling-pausing-queries.md)
+- [Query Retries](./docs/guides-concepts/12-query-retries.md)
+- [Paginated Queries](./docs/guides-concepts/13-paginated-queries.md)
+- [Infinite Queries](./docs/guides-concepts/14-infinite-queries.md)
+- [Initial Query Data](./docs/guides-concepts/15-initial-query-data.md)
+- [Placeholder Query Data](./docs/guides-concepts/16-placeholder-query-data.md)
 
 ## 참고 링크
 

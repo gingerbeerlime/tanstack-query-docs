@@ -13,6 +13,13 @@ export interface Post {
   body: string;
 }
 
+let mockUserList: User[] = [
+  { id: 1, name: "김철수", email: "kim@example.com", city: "서울" },
+  { id: 2, name: "이영희", email: "lee@example.com", city: "부산" },
+  { id: 3, name: "박민수", email: "park@example.com", city: "대구" },
+  { id: 4, name: "최지영", email: "choi@example.com", city: "인천" },
+];
+
 // 사용자 목록 조회 (시뮬레이션)
 export const fetchUsers = async (): Promise<User[]> => {
   await new Promise((resolve) => setTimeout(resolve, 1000)); // 1초 지연
@@ -22,12 +29,7 @@ export const fetchUsers = async (): Promise<User[]> => {
     throw new Error("사용자 데이터를 불러오는데 실패했습니다");
   }
 
-  return [
-    { id: 1, name: "김철수", email: "kim@example.com", city: "서울" },
-    { id: 2, name: "이영희", email: "lee@example.com", city: "부산" },
-    { id: 3, name: "박민수", email: "park@example.com", city: "대구" },
-    { id: 4, name: "최지영", email: "choi@example.com", city: "인천" },
-  ];
+  return mockUserList;
 };
 
 // 새 사용자 추가 (시뮬레이션)
@@ -39,10 +41,15 @@ export const createUser = async (userData: Omit<User, "id">): Promise<User> => {
     throw new Error("사용자 생성에 실패했습니다");
   }
 
-  return {
-    id: Date.now(), // 간단한 ID 생성
+  // 새 사용자 객체를 먼저 생성
+  const newUser: User = {
+    id: Date.now(),
     ...userData,
   };
+
+  mockUserList = mockUserList.concat(newUser);
+
+  return newUser;
 };
 
 // 특정 사용자의 게시글 조회 (시뮬레이션)

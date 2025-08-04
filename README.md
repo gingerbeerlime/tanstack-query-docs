@@ -22,6 +22,7 @@
 - [Infinite Queries](./docs/guides-concepts/14-infinite-queries.md)
 - [Initial Query Data](./docs/guides-concepts/15-initial-query-data.md)
 - [Placeholder Query Data](./docs/guides-concepts/16-placeholder-query-data.md)
+- [Mutations] (./docs/guides-concepts/17-mutations.md)
 
 ## 참고 링크
 

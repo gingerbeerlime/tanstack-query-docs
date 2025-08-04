@@ -1,4 +1,4 @@
-## Query Invalidation
+## Query Invalidation(쿼리 무효화)
 
 > `invalidateQueries` 함수를 사용해 의도적으로 쿼리 데이터를 `stale` 상태로 표시하고, 다시 `refetch`하도록 설정할 수 있다
 

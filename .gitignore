@@ -1,0 +1,11 @@
+CLAUDE.md
+
+# practice 디렉토리 하위 파일들
+practice/node_modules/
+practice/dist/
+practice/.env
+practice/.env.local
+practice/.env.production
+practice/.env.development
+practice/*.log
+practice/.DS_Store

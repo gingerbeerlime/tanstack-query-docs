@@ -20,7 +20,7 @@ import { fetchUsers, createUser, User } from "../api/users";
  * - mutate 함수와 isPending, isSuccess, isError 상태를 활용하세요
  */
 
-const Problem2: React.FC = () => {
+const MutationAndInvalidation: React.FC = () => {
   const [newUser, setNewUser] = useState({
     name: "",
     email: "",
@@ -204,4 +204,4 @@ const Problem2: React.FC = () => {
   );
 };
 
-export default Problem2;
+export default MutationAndInvalidation;

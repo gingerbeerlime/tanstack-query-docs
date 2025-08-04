@@ -1,6 +1,6 @@
 import React from 'react'
 
-const problems = [
+const exercises = [
   {
     id: 1,
     title: '기본 쿼리와 상태 처리',
@@ -52,19 +52,19 @@ const problems = [
   }
 ]
 
-const ProblemList: React.FC = () => {
+const ExerciseList: React.FC = () => {
   return (
     <div style={{ padding: '30px' }}>
       <div style={{ marginBottom: '30px', textAlign: 'center' }}>
-        <h2 style={{ color: '#333', marginBottom: '10px' }}>📚 TanStack Query 연습 문제</h2>
+        <h2 style={{ color: '#333', marginBottom: '10px' }}>📚 TanStack Query 연습 예제</h2>
         <p style={{ color: '#666', fontSize: '16px' }}>
-          각 문제를 차례대로 해결하면서 TanStack Query의 핵심 개념들을 익혀보세요!
+          각 예제를 차례대로 해결하면서 TanStack Query의 핵심 개념들을 익혀보세요!
         </p>
       </div>
 
-      {problems.map((problem) => (
+      {exercises.map((exercise) => (
         <div
-          key={problem.id}
+          key={exercise.id}
           style={{
             border: '1px solid #e0e0e0',
             borderRadius: '12px',
@@ -95,9 +95,9 @@ const ProblemList: React.FC = () => {
                 fontSize: '16px',
                 fontWeight: 'bold'
               }}>
-                {problem.id}
+                {exercise.id}
               </span>
-              {problem.title}
+              {exercise.title}
             </h3>
             <p style={{ 
               color: '#555', 
@@ -105,7 +105,7 @@ const ProblemList: React.FC = () => {
               lineHeight: '1.6',
               marginLeft: '42px'
             }}>
-              {problem.description}
+              {exercise.description}
             </p>
           </div>
 
@@ -123,7 +123,7 @@ const ProblemList: React.FC = () => {
               color: '#444',
               lineHeight: '1.8'
             }}>
-              {problem.requirements.map((req, index) => (
+              {exercise.requirements.map((req, index) => (
                 <li key={index} style={{ marginBottom: '8px' }}>
                   {req}
                 </li>
@@ -145,7 +145,7 @@ const ProblemList: React.FC = () => {
               color: '#666',
               lineHeight: '1.8'
             }}>
-              {problem.hints.map((hint, index) => (
+              {exercise.hints.map((hint, index) => (
                 <li key={index} style={{ marginBottom: '8px' }}>
                   {hint}
                 </li>
@@ -165,12 +165,12 @@ const ProblemList: React.FC = () => {
       }}>
         <h3 style={{ color: '#0066cc', marginBottom: '10px' }}>🚀 시작하기</h3>
         <p style={{ color: '#004499', lineHeight: '1.6' }}>
-          문제를 다 읽었다면 <strong>"💻 구현하기"</strong> 탭으로 이동해서 코드를 작성해보세요!<br/>
-          각 문제는 독립적으로 해결할 수 있지만, 순서대로 풀어보시는 것을 권장합니다.
+          예제를 다 읽었다면 <strong>"💻 구현하기"</strong> 탭으로 이동해서 코드를 작성해보세요!<br/>
+          각 예제는 독립적으로 해결할 수 있지만, 순서대로 풀어보시는 것을 권장합니다.
         </p>
       </div>
     </div>
   )
 }
 
-export default ProblemList
+export default ExerciseList

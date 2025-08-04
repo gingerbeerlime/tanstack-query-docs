@@ -19,7 +19,7 @@ import { fetchUsers, User } from "../api/users";
  * - isLoading, isError, error, data 상태를 활용하세요
  */
 
-const Problem1: React.FC = () => {
+const BasicQuery: React.FC = () => {
   // TODO: 여기에 useQuery를 사용하여 사용자 데이터를 가져오는 코드를 작성하세요
   const { data, isLoading, isError, error } = useQuery<User[]>({
     queryKey: ["users"],
@@ -87,4 +87,4 @@ const Problem1: React.FC = () => {
   }
 };
 
-export default Problem1;
+export default BasicQuery;

@@ -20,7 +20,7 @@ import { fetchUsers, fetchUserPosts, User, Post } from "../api/users";
  * - selectedUserId 상태가 있을 때만 게시글 쿼리가 실행되도록 하세요
  */
 
-const Problem3: React.FC = () => {
+const DependentQueries: React.FC = () => {
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
 
   // TODO: 사용자 목록을 가져오는 쿼리 작성
@@ -124,4 +124,4 @@ const Problem3: React.FC = () => {
   );
 };
 
-export default Problem3;
+export default DependentQueries;

@@ -1,27 +1,47 @@
-import React from 'react'
-import Problem1 from './problems/Problem1'
-import Problem2 from './problems/Problem2'
-import Problem3 from './problems/Problem3'
+import React, { useState } from 'react'
+import ProblemList from './components/ProblemList'
+import Workspace from './components/Workspace'
 
 function App() {
+  const [activeTab, setActiveTab] = useState<'problems' | 'workspace'>('problems')
+
+  const tabStyle = (isActive: boolean) => ({
+    padding: '12px 24px',
+    border: 'none',
+    backgroundColor: isActive ? '#007acc' : '#f0f0f0',
+    color: isActive ? 'white' : '#333',
+    cursor: 'pointer',
+    borderRadius: '8px 8px 0 0',
+    fontSize: '16px',
+    fontWeight: isActive ? 'bold' : 'normal'
+  })
+
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>TanStack Query 연습 문제</h1>
-      <p>각 문제를 단계별로 해결해보세요!</p>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', maxWidth: '1200px', margin: '0 auto' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>TanStack Query 연습 문제</h1>
       
-      <div style={{ marginBottom: '40px' }}>
-        <h2>문제 1: 기본 쿼리와 상태 처리</h2>
-        <Problem1 />
+      <div style={{ marginBottom: '20px' }}>
+        <button 
+          style={tabStyle(activeTab === 'problems')}
+          onClick={() => setActiveTab('problems')}
+        >
+          📚 문제 보기
+        </button>
+        <button 
+          style={tabStyle(activeTab === 'workspace')}
+          onClick={() => setActiveTab('workspace')}
+        >
+          💻 구현하기
+        </button>
       </div>
 
-      <div style={{ marginBottom: '40px' }}>
-        <h2>문제 2: 뮤테이션과 쿼리 무효화</h2>
-        <Problem2 />
-      </div>
-
-      <div style={{ marginBottom: '40px' }}>
-        <h2>문제 3: 쿼리 키와 의존성 쿼리</h2>
-        <Problem3 />
+      <div style={{ 
+        border: '1px solid #ddd', 
+        borderRadius: '0 8px 8px 8px',
+        backgroundColor: 'white',
+        minHeight: '600px'
+      }}>
+        {activeTab === 'problems' ? <ProblemList /> : <Workspace />}
       </div>
     </div>
   )

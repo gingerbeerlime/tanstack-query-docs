@@ -40,7 +40,6 @@ const Problem2: React.FC = () => {
     mutationFn: (newUser: Omit<User, "id">) => createUser(newUser),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["users"] });
-      setNewUser({ name: "", email: "", city: "" });
     },
   });
 
@@ -54,7 +53,11 @@ const Problem2: React.FC = () => {
     }
 
     // TODO: 뮤테이션 실행
-    mutation.mutate(newUser);
+    mutation.mutate(newUser, {
+      onSuccess: () => {
+        setNewUser({ name: "", email: "", city: "" });
+      },
+    });
   };
 
   return (

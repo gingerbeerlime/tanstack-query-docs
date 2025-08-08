@@ -73,6 +73,7 @@ const result = useQuery({
 
 - `initialDataUpdatedAt` 에 데이터가 마지막으로 갱신된 시간 지정함
 - `staleTime`이 지나면 `refetch` 실행
+- `initialDataUpdatedAt = 0` : 바로 stale한 데이터로 취급해서 refetch 트리거
 
 ### (5) 캐시에서 InitialData 가져오기
 

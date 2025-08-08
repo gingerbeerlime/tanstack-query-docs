@@ -119,10 +119,11 @@ const mockPosts: Post[] = Array.from({ length: 100 }, (_, index) => ({
   likes: Math.floor(Math.random() * 100),
 }));
 
-export const fetchPosts = async (
-  page: number = 1,
-  limit: number = 10
-): Promise<PostsResponse> => {
+export const fetchPosts = async ({
+  pageParam,
+}: {
+  pageParam: number;
+}): Promise<PostsResponse> => {
   await new Promise((resolve) => setTimeout(resolve, 800)); // 0.8초 지연
 
   // 5% 확률로 에러 발생
@@ -130,13 +131,15 @@ export const fetchPosts = async (
     throw new Error("게시글을 불러오는데 실패했습니다");
   }
 
-  const startIndex = (page - 1) * limit;
+  const limit = 10;
+
+  const startIndex = (pageParam - 1) * limit;
   const endIndex = startIndex + limit;
   const posts = mockPosts.slice(startIndex, endIndex);
 
   return {
     posts,
-    nextPage: endIndex < mockPosts.length ? page + 1 : undefined,
+    nextPage: endIndex < mockPosts.length ? pageParam + 1 : undefined,
     hasMore: endIndex < mockPosts.length,
   };
 };

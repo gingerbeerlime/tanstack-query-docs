@@ -42,12 +42,13 @@ useInfiniteQuery({
 ```
 
 - `initialPageParam : 0` → 처음엔 `cursor = 0`으로 호출
+- `queryFn: fetchProjects`: `(pageParam) => fetchProjects({ pageParam })` 으로 동작, 화살표 함수로 래핑해서 커스텀 가능
 - `getNextPageParam`함수는 마지막 응답을 기준으로 다음에 호출할 `cursor` 값 반환
 
 > ⚠️ **동시에 fetchNextPage() 여러 번 호출하면 데이터 충돌 위험**<br/>
 > 기본적으로 `cancelRefetch: true`이므로 마지막 요청만 유지됨.<br/>
 > 병렬 호출을 허용하려면 → `fetchNextPage({ cancelRefetch: false })`<br/>
-> or 조건 체크 → `if (**hasNextPage && !isFetchingNextPage**) fetchNextPage()`
+> or 조건 체크 → `if (hasNextPage && !isFetchingNextPage) fetchNextPage()`
 
 </aside>
 

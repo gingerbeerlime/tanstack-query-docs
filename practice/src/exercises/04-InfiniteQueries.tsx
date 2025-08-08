@@ -10,7 +10,7 @@ const InfiniteQueries: React.FC = () => {
   const { data, status, error, isFetchingNextPage, fetchNextPage } =
     useInfiniteQuery({
       queryKey: ["posts"],
-      queryFn: ({ pageParam = 1 }) => fetchPosts(pageParam, 10),
+      queryFn: fetchPosts,
       initialPageParam: 1,
       getNextPageParam: (lastPage) => lastPage.nextPage,
     });

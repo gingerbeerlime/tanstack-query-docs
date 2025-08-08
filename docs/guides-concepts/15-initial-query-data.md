@@ -27,7 +27,7 @@ const result = useQuery({
 });
 ```
 
-> ⚠️ initialData는 캐시에 실제로 저장됨 → 불완전한 데이터를 사용하지 말 것
+> ⚠️ initialData는 캐시에 실제로 저장되기 때문에 불완전한 데이터를 사용하지 않도록 주의
 
 - `initialData`에 값을 넣지말고 함수 자체로 넣으면 최초 한번만 실행되기 때문에 **성능 최적화**에 유리
   ```jsx
@@ -39,7 +39,7 @@ const result = useQuery({
 
 ### (3) staleTime과 InitialData
 
-- 기본적으로 `InitialData`는 방금 `fetch`한 최신 데이터로 취급됨
+- 기본적으로 `InitialData`는 방금 `fetch`한 최신 데이터로 취급됨(fresh)
 - 따라서 `staleTime`이 **0**이면, 마운트되자마자 즉시 `refetch`가 발생함
 
 ```jsx
@@ -53,7 +53,7 @@ const result = useQuery({
 ⇒ 첫 화면에 `initialTodos`를 보여주지만, 바로 서버에서 다시 불러옴
 
 > ⚠️ **`initialData`를 `prefetch`한 데이터처럼 다루고 싶다면?**<br/>
-> ⇒ prefetchQuery() 또는 fetchQuery() 사용
+> ⇒ `prefetchQuery()` 또는 `fetchQuery()` 사용
 
 <br/>
 

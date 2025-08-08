@@ -16,9 +16,18 @@ const InitialQueryData: React.FC = () => {
     try {
       const basicInfo = await fetchUserBasicInfo(userId);
       if (basicInfo) {
-        queryClient.setQueryData(["userProfile", userId], {
-          ...basicInfo,
-        });
+        queryClient.setQueryData(
+          ["userProfile", userId],
+          {
+            ...basicInfo,
+            email: "Loading...",
+            bio: "Loading...",
+            followers: 0,
+            following: 0,
+            joinedAt: "Loading...",
+          },
+          { updatedAt: 0 }
+        );
       }
     } catch (error) {
       console.error("사용자 기본 정보 로드 실패", error);

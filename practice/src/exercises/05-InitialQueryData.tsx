@@ -1,38 +1,17 @@
 // TODO: useQuery, useQueryClient와 필요한 타입들을 import 하세요
 import React, { useState } from "react";
-import { skipToken, useQuery, useQueryClient } from "@tanstack/react-query";
-import { fetchUserBasicInfo, fetchUserProfile } from "../api/users";
+import { skipToken, useQuery } from "@tanstack/react-query";
+import { fetchUserProfile } from "../api/users";
 
 const InitialQueryData: React.FC = () => {
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
 
-  // TODO: useQueryClient를 사용하여 쿼리 클라이언트에 접근하세요
-  const queryClient = useQueryClient();
-
-  // TODO: 빠른 기본 정보를 미리 로드하는 함수를 작성하세요
-  const preloadUserBasicInfo = async (userId: number) => {
-    // 힌트: fetchUserBasicInfo를 호출하여 기본 정보를 가져오세요
-    // 힌트: queryClient.setQueryData를 사용하여 상세 정보 쿼리의 초기 데이터로 설정하세요
-    try {
-      const basicInfo = await fetchUserBasicInfo(userId);
-      if (basicInfo) {
-        queryClient.setQueryData(
-          ["userProfile", userId],
-          {
-            ...basicInfo,
-            email: "Loading...",
-            bio: "Loading...",
-            followers: 0,
-            following: 0,
-            joinedAt: "Loading...",
-          },
-          { updatedAt: 0 }
-        );
-      }
-    } catch (error) {
-      console.error("사용자 기본 정보 로드 실패", error);
-    }
-  };
+  const users = [
+    { id: 1, name: "김철수" },
+    { id: 2, name: "이영희" },
+    { id: 3, name: "박민수" },
+    { id: 4, name: "최지영" },
+  ];
 
   // TODO: 사용자 상세 프로필을 조회하는 쿼리를 작성하세요
   // 힌트: enabled 옵션을 사용하여 selectedUserId가 있을 때만 실행하세요
@@ -48,20 +27,22 @@ const InitialQueryData: React.FC = () => {
       ? () => fetchUserProfile(selectedUserId!)
       : skipToken,
     initialData: () => {
-      return queryClient.getQueryData(["userProfile", selectedUserId]);
+      if (!selectedUserId) return;
+      const basicInfo = {
+        ...users.find((user) => user.id === selectedUserId),
+        email: "Loading",
+        avatar: "",
+        bio: "Loading...",
+        followers: 0,
+        following: 0,
+        joinedAt: "Loading...",
+      };
+      return basicInfo ?? undefined;
     },
+    initialDataUpdatedAt: 0,
   });
 
-  const users = [
-    { id: 1, name: "김철수" },
-    { id: 2, name: "이영희" },
-    { id: 3, name: "박민수" },
-    { id: 4, name: "최지영" },
-  ];
-
   const handleUserSelect = async (userId: number) => {
-    // TODO: 사용자 선택 시 기본 정보를 미리 로드하고 선택된 사용자를 설정하세요
-    await preloadUserBasicInfo(userId);
     setSelectedUserId(userId);
   };
 

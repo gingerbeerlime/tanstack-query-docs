@@ -208,19 +208,19 @@ export const fetchUserProfile = async (
 };
 
 // 빠른 사용자 기본 정보 조회 (초기 데이터용)
-export const fetchUserBasicInfo = async (
-  userId: number
-): Promise<Pick<UserProfile, "id" | "name" | "avatar">> => {
+export const fetchUsersBasicInfo = async (): Promise<
+  Pick<UserProfile, "id" | "name" | "avatar">[]
+> => {
   await new Promise((resolve) => setTimeout(resolve, 200)); // 0.2초 지연 (빠른 API)
 
-  const profile = mockUserProfiles.find((p) => p.id === userId);
-  if (!profile) {
-    throw new Error("존재하지 않는 사용자입니다");
-  }
-
-  return {
+  const profiles = mockUserProfiles.map((profile) => ({
     id: profile.id,
     name: profile.name,
     avatar: profile.avatar,
-  };
+  }));
+  if (!profiles) {
+    throw new Error("존재하지 않는 사용자입니다");
+  }
+
+  return profiles;
 };

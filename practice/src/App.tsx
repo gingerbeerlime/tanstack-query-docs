@@ -4,6 +4,7 @@ import MutationAndInvalidation from "./exercises/02-MutationAndInvalidation";
 import DependentQueries from "./exercises/03-DependentQueries";
 import InfiniteQueries from "./exercises/04-InfiniteQueries";
 import InitialQueryData from "./exercises/05-InitialQueryData";
+import OptimisticUpdates from "./exercises/06-OptimisticUpdates";
 
 const exercises = [
   { 
@@ -40,6 +41,13 @@ const exercises = [
     component: InitialQueryData,
     description: "빠른 기본 정보를 먼저 보여주고 상세 정보를 점진적으로 로드하여 UX를 개선합니다.",
     concepts: ["initialData", "setQueryData", "점진적 로딩", "캐시 활용"]
+  },
+  {
+    id: 6,
+    title: "낙관적 업데이트",
+    component: OptimisticUpdates,
+    description: "댓글 추가 시 즉시 UI에 반영하고, 실패 시 롤백하는 낙관적 업데이트를 구현합니다.",
+    concepts: ["onMutate", "캐시 업데이트", "롤백 처리", "낙관적 UI"]
   }
 ];
 

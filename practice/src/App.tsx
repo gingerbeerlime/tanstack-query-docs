@@ -5,6 +5,7 @@ import DependentQueries from "./exercises/03-DependentQueries";
 import InfiniteQueries from "./exercises/04-InfiniteQueries";
 import InitialQueryData from "./exercises/05-InitialQueryData";
 import OptimisticUpdates from "./exercises/06-OptimisticUpdates";
+import LikeOptimisticUpdate from "./exercises/07-LikeOptimisticUpdate";
 
 const exercises = [
   { 
@@ -48,6 +49,13 @@ const exercises = [
     component: OptimisticUpdates,
     description: "댓글 추가 시 즉시 UI에 반영하고, 실패 시 롤백하는 낙관적 업데이트를 구현합니다.",
     concepts: ["onMutate", "캐시 업데이트", "롤백 처리", "낙관적 UI"]
+  },
+  {
+    id: 7,
+    title: "좋아요 토글 최적화",
+    component: LikeOptimisticUpdate,
+    description: "게시글 좋아요를 즉시 반영하고, 여러 게시글을 동시에 처리할 수 있는 고급 낙관적 업데이트를 구현합니다.",
+    concepts: ["mutationKey", "독립적 처리", "useMutationState", "부분 업데이트"]
   }
 ];
 

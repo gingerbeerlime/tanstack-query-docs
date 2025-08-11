@@ -25,6 +25,10 @@
 - [Mutations](./docs/guides-concepts/17-mutations.md)
 - [Query Invalidation](./docs/guides-concepts/18-query-invalidation.md)
 - [Invalidations from Mutaions](./docs/guides-concepts/19-invalidations-from-mutations.md)
+- [Updates from Mutation Response](./docs/guides-concepts/20-updates-from-mutation-response.md)
+- [Optimistic Updates](./docs/guides-concepts/21-optimistic-updates.md)
+- [Query Cancellation](./docs/guides-concepts/22-query-cancellation.md)
+- [Scroll Restoration](./docs/guides-concepts/23-scroll-restoration.md)
 
 ## 참고 링크
 

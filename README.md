@@ -29,6 +29,9 @@
 - [Optimistic Updates](./docs/guides-concepts/21-optimistic-updates.md)
 - [Query Cancellation](./docs/guides-concepts/22-query-cancellation.md)
 - [Scroll Restoration](./docs/guides-concepts/23-scroll-restoration.md)
+- [Filters](./docs/guides-concepts/24-filters.md)
+- [Performance & Request Waterfalls](./docs/guides-concepts/25-performances-request-waterfalls.md)
+- [Prefetching & Router Integration](./docs/guides-concepts/26-prefetching-router-integration.md)
 
 ## 참고 링크
 

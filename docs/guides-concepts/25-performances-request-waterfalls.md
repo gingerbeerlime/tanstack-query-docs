@@ -8,9 +8,11 @@
 
 직렬 요청이 쌓이면 네트워크 지연(latency) x 왕복 횟수만큼 성능 저하 발생
 
+<br/>
+
 ### 리액트 쿼리에서 발생하는 워터폴 패턴
 
-### **(1) 단일 컴포넌트 직렬 쿼리(Dependent Query)**
+#### (1) 단일 컴포넌트 직렬 쿼리(Dependent Query)
 
 한 컴포넌트 안에서 먼저 한 쿼리를 실행한 뒤 그 결과에 따라 다른 쿼리를 실행하는 경우
 
@@ -35,7 +37,9 @@ const { data: projects } = useQuery({
 1. 단일 API로 재구성하기 `getProjectsByUserEmail`
 2. 서버에서 병합 처리(Server Components / BFF)
 
-### **(2) Suspense를 사용할 때 직렬 쿼리**
+<br/>
+
+#### (2) Suspense를 사용할 때 직렬 쿼리
 
 `useSuspenseQuery`는 데이터가 캐시에 없으면 `throw Promise`를 발생시켜 `Suspense` 경계로 제어를 넘겨버린다. 이 때 리액트는 데이터가 준비가 안되었다고 판단해 렌더 과정을 멈추고 `fallback ui`를 표시한다.
 
@@ -67,7 +71,9 @@ const [users, teams, projects] = useSuspenseQueries({
 });
 ```
 
-### **(3) 중첩 컴포넌트 워터폴**
+<br/>
+
+#### (3) 중첩 컴포넌트 워터폴
 
 부모와 자식 컴포넌트가 각각 쿼리를 가지고 있고 **부모 쿼리가 끝난 후에 자식 컴포넌트를 렌더링 하는 경우**
 
@@ -136,18 +142,16 @@ function Article({ id }) {
 }
 ```
 
-<aside>
-💡
+> 💡 **`notifyOnChangeProps`**<br/>
+> 어떤 속성(prop)이 바뀌었을 때만 리렌더를 트리거할지 지정하는 옵션
+>
+> - 기본적으로 `useQuery`는 반환 객체(`data`, `error`, `isFetching` …) 중 하나라도 변경되면 컴포넌트가 리렌더링된다.<br/>
+> - `notifyOnChangeProps: [’data’]` 로 지정하면 `data`가 변경될 때만 리렌더가 발생하도록 설정할 수 있다.<br/>
+> - `notifyOnChangeProps: []` 로 지정하면 이 `useQuery` 훅은 리렌더를 트리거 하지 않는다. `prefetch` 용도로만 훅을 사용할 때 최적화용 옵션으로 사용할 수 있다.<br/>
 
-**`notifyOnChangeProps`**
-어떤 속성(prop)이 바뀌었을 때만 리렌더를 트리거할지 지정하는 옵션
+<br/>
 
-- 기본적으로 `useQuery`는 반환 객체(`data`, `error`, `isFetching` …) 중 하나라도 변경되면 컴포넌트가 리렌더링된다.
-- `notifyOnChangeProps: [’data’]` 로 지정하면 `data`가 변경될 때만 리렌더가 발생하도록 설정할 수 있다.
-- `notifyOnChangeProps: []` 로 지정하면 이 `useQuery` 훅은 리렌더를 트리거 하지 않는다. `prefetch` 용도로만 훅을 사용할 때 최적화용 옵션으로 사용할 수 있다.
-</aside>
-
-### **(4) 코드 스플리팅 + 쿼리**
+#### (4) 코드 스플리팅 + 쿼리
 
 **코드 스플리팅?** JS 코드를 여러 번들로 나눠 필요한 시점에만 불러오는 기법
 
@@ -173,9 +177,9 @@ function Feed() {
 ```markdown
 1.  |-> 마크업
 2.  |-> JS for <Feed>
-3.      |-> getFeed()
-4.        |-> JS for <GraphFeedItem>
-5.          |-> getGraphDataById()
+3.             |-> getFeed()
+4.               |-> JS for <GraphFeedItem>
+5.                 |-> getGraphDataById()
 ```
 
 **⇒ 1) 부모 컴포넌트에서 조건부 사전 페칭(쿼리 호이스팅)**
@@ -219,6 +223,8 @@ function Feed() {
 ```
 
 ⇒ 2) 더 나은 대안은 **서버 컴포넌트** 사용하기
+
+<br/>
 
 ### ✨ 요약
 
